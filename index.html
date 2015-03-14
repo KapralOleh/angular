@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="gemStore">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+<body ng-controller="StoreController as gemStore">
+
+	<div id="container" ng-hide="gemStore.product.soldOut" ng-repeat="product in gemStore.products">
+		<h1>Name: {{product.name}} </h1>
+		<h2>Cost: {{product.price | currency}} </h2>		
+		<div class="gallery" ng-show="product.images.length">
+		<p class="center"><img ng-src="{{product.images[0]}}"></p>
+		<ul class="img-thumbnails">
+          	<li class="thumbnail" ng-repeat="image in product.images">
+            <img ng-src="{{image}}" />
+          	</li>
+        </ul>
+        </div>
+        <section ng-controller="PanelController as panel">
+        	<ul class="tabs">
+        		<li ng-class="{active:panel.isSelected(1)}"class="thumbnail">
+        			<a href ng-click="panel.selectTab(1)">Description</a></li>
+        		<li ng-class="{active:panel.isSelected(2)}"class="thumbnail">
+        			<a href ng-click="panel.selectTab(2)">Specificetion</a></li>
+        		<li ng-class="{active:panel.isSelected(3)}"class="thumbnail">
+        			<a href ng-click="panel.selectTab(3)">Reviews</a></li>
+        	</ul>
+        	
+        	<div ng-show="panel.isSelected(1)">
+				<h4>Description</h4>
+				<blockquote>{{product.description}}</blockquote>
+			</div>
+			<div ng-show="panel.isSelected(2)">
+				<h4>Specification</h4>
+				<blockquote>{{product.specification}}</blockquote>
+			</div>
+			<div ng-show="panel.isSelected(3)">
+				<h4>Reviews</h4>
+				<blockquote>{{product.reviews}}</blockquote>
+			</div>
+		</section>
+				<button ng-show="gemStore.product.canPurchase">Add to cart</button>
+	</div>
+
+
+
+
+	
+	
+	<script type="text/javascript" src="app.js"></script>
+</body>
+</html>

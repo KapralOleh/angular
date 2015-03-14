@@ -1,0 +1,42 @@
+#container, #input {
+	background-color: grey;
+	margin: 10px auto;
+	width: 300px;
+	padding:20px;
+
+}
+h1 {
+	color: white;
+}
+h2 {
+	color: gold;
+}
+.center {
+	text-align: center;
+}
+.thumbnail  {
+	display: inline;
+}
+.tabs {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	color: gold;
+	font-size: 18px;
+	text-align: left;
+
+}
+.tabs a {
+	text-decoration: none;
+	margin-left: 10px;
+	color: #383838;
+}
+blockquote {
+	border-left: 2px solid white;
+	margin-left: 10px;
+	padding-left: 10px;
+}
+
+.active {
+	font-weight: bold;
+}
