@@ -1,5 +1,5 @@
 (function() {
-  var app = angular.module('gemStore', []);
+  var app = angular.module('gemStore', ['gemProduct']);
 
   app.controller('StoreController', function(){
     this.products = gems;
@@ -16,6 +16,45 @@
    	}
   });
 
+
+ // app.directive("PanelController", function() {
+ //    return {
+ //      restrict: "E",
+ //      templateUrl: "product-tabs.html",
+ //      controller: function() {
+ //        this.tab = 1;
+
+ //  	this.selectTab = function(setTab) {
+ //  		this.tab = setTab;
+ //   	};
+ //   	this.isSelected = function(checkTab){
+ //   		return this.tab === checkTab;
+ //   	},
+ //      controllerAs: "tab"
+ //    };
+ //  });
+
+
+
+
+
+  app.controller("ReviewController", function(){
+  	this.review = {};
+  	
+  	this.addReview = function(product){
+  		//this.review = {createdOn: Date.now()};
+  		product.reviews.push(this.review);
+  		  	this.review = {};
+
+
+  	};
+  });
+
+
+  
+
+
+
   var gems = [
     { 
     	name: 'Azurite',
@@ -27,7 +66,20 @@
         ],	
        	description: "Azurite is a soft, deep blue copper mineral produced by weathering of copper ore deposits. It is also known as Chessylite after the type locality at Chessy-les-Mines near Lyon, France",
        	specification : "The optical properties (color, intensity) of minerals such as azurite and malachite are explained in the context of conventional electronic spectroscopy of coordination complexes. Relatively detailed descriptions are provided by ligand field theory.",
-       	reviews: "Azurite is used occasionally as beads and as jewelry, and also as an ornamental stone. However, its softness and tendency to lose its deep blue color as it weathers limit such uses. Heating destroys azurite easily, so all mounting of azurite specimens must be done at room temperature."
+       	reviews: [
+       	{
+       		stars: 5,
+       		body: "Azurite is used occasionally as beads and as jewelry, and also as an ornamental stone.",
+       		author: "Oleh",
+       		createdOn: 1397490980837
+       	},
+       	{
+       		stars: 3,
+       		body: "Azurite is used occasionally as beads and as jewelry, and also as an ornamental stone.",
+       		author : "Ihor",
+       		createdOn: 1397490980837
+       	}
+       	]
     },
     {
 	    name: 'Bloodstone',
