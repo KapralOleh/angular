@@ -11,13 +11,13 @@
 	<div id="container" ng-hide="gemStore.product.soldOut" ng-repeat="product in gemStore.products">
 		<h1 producted></h1>	
 		<div class="gallery" ng-show="product.images.length">
-		<p class="center"><img ng-src="{{product.images[0]}}"></p>
-		<ul class="img-thumbnails">
-          	<li class="thumbnail" ng-repeat="image in product.images">
-            <img ng-src="{{image}}" />
-          	</li>
-        </ul>
-        </div>
+			<p class="center"><img ng-src="{{product.images[0]}}"></p>
+			<ul class="img-thumbnails">
+	          	<li class="thumbnail" ng-repeat="image in product.images">
+	            <img ng-src="{{image}}" />
+	          	</li>
+	        </ul></div>
+
         <section ng-controller="PanelController as panel">
         	<ul class="tabs">
         		<li ng-class="{active:panel.isSelected(1)}"class="thumbnail">
